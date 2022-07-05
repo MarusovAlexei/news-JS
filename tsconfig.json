@@ -1,27 +1,17 @@
 {
     "compilerOptions": {
-        // блок базовых настроек
-        "target": "ES6",
-        "module": "none",
-        "moduleResolution": "node",
-        "lib": ["DOM", "ES6", "DOM.Iterable", "ScriptHost"],
-        "outDir": "./src",
-        "outFile": "index.ts",
-        "allowSyntheticDefaultImports": true,
-        "strict": true,
-        "forceConsistentCasingInFileNames": true,
+        "target": "es2016",
+        "rootDir": "./src",
+        "allowJs": true,
         "sourceMap": true,
-        "diagnostics": true,
+        "outDir": "./dist",
         "esModuleInterop": true,
-        "noImplicitAny": false,
-        "noUnusedLocals": true,
-        "noUnusedParameters": true,
-        "pretty": true,
-        "removeComments": true,
-        "declaration": true
+        "forceConsistentCasingInFileNames": true,
+        "strict": true,
+        "noImplicitAny": true,
+        "skipLibCheck": true,
+        "moduleResolution": "node"
     },
-    "exclude": ["node_modules"],
-    "include": ["src"]
+    "include": ["./src/"],
+    "exclude": ["node_modules/"]
 }
-
-// https://habr.com/ru/post/542234/
