@@ -11,8 +11,17 @@
         "strict": true,
         "forceConsistentCasingInFileNames": true,
         "sourceMap": true,
+        "diagnostics": true,
+        "esModuleInterop": true,
+        "noImplicitAny": false,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "pretty": true,
+        "removeComments": true,
+        "declaration": true
     },
-    "exclude": ["node_modules"]
+    "exclude": ["node_modules"],
+    "include": ["src"]
 }
 
 // https://habr.com/ru/post/542234/
