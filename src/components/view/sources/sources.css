@@ -1,14 +1,17 @@
 .sources {
     display: flex;
-    flex-wrap: nowrap;
-    width: 100%;
-    height: 120px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    width: 80vw;
+    height: 55vh;
     overflow: auto;
     align-items: center;
     font: 300 1em 'Fira Sans', sans-serif;
+    justify-content: space-around;
 }
 
 .source__item {
+    width: 200px;
     background: none;
     border: 2px solid #30c5ff;
     font: inherit;
@@ -18,6 +21,7 @@
     color: #70d6ff;
     transition: 0.25s;
     cursor: pointer;
+    text-align: center;
 }
 
 .source__item:hover,
