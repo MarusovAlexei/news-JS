@@ -1,4 +1,4 @@
-import { INews } from '../../source/interface';
+import { INews } from '../../types-ts/interface';
 import './news.css';
 
 class News {
