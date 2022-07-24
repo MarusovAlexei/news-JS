@@ -32,3 +32,9 @@ export interface ISources {
     readonly status: string;
     readonly sources: Array<ISource>;
 }
+
+export interface IOptions {
+    readonly sources: string;
+    readonly apiKey: string;
+    readonly [index: string]: string;
+}

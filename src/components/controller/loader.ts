@@ -1,19 +1,25 @@
+import { IResponce, IOptions } from './../types-ts/interface';
+import { Method } from './../types-ts/enum';
+
 class Loader {
-    constructor(baseLink, options) {
+    private baseLink: string;
+    public options: IOptions;
+
+    constructor(baseLink: string, options: IOptions) {
         this.baseLink = baseLink;
         this.options = options;
     }
 
     getResp(
-        { endpoint, options = {} },
-        callback = () => {
+        params: { endpoint: string; options: IOptions },
+        callback = (data: IResponce) => {
             console.error('No callback for GET response');
         }
     ) {
-        this.load('GET', endpoint, callback, options);
+        this.load(Method.Get, params.endpoint, callback, params.options);
     }
 
-    errorHandler(res) {
+    errorHandler(res: Response) {
         if (!res.ok) {
             if (res.status === 401 || res.status === 404)
                 console.log(`Sorry, but there is ${res.status} error: ${res.statusText}`);
@@ -23,8 +29,8 @@ class Loader {
         return res;
     }
 
-    makeUrl(options, endpoint) {
-        const urlOptions = { ...this.options, ...options };
+    makeUrl(options: IOptions, endpoint: string) {
+        const urlOptions: IOptions = { ...this.options, ...options };
         let url = `${this.baseLink}${endpoint}?`;
 
         Object.keys(urlOptions).forEach((key) => {
@@ -34,7 +40,7 @@ class Loader {
         return url.slice(0, -1);
     }
 
-    load(method, endpoint, callback, options = {}) {
+    load(method: Method, endpoint: string, callback: Function, options: IOptions) {
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
             .then((res) => res.json())
