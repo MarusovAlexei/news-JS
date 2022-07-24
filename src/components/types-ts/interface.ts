@@ -21,3 +21,14 @@ export interface ISource {
     readonly language: string;
     readonly country: string;
 }
+
+export interface IResponce {
+    readonly status: string;
+    readonly total: number;
+    readonly articles: Array<INews>;
+}
+
+export interface ISources {
+    readonly status: string;
+    readonly sources: Array<ISource>;
+}
