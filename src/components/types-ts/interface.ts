@@ -30,11 +30,12 @@ export interface IResponce {
 
 export interface ISources {
     readonly status: string;
-    readonly sources: Array<ISource>;
+    readonly sources?: Array<ISource>;
 }
 
 export interface IOptions {
-    readonly sources: string;
-    readonly apiKey: string;
-    readonly [index: string]: string;
+    readonly sources?: string;
+    readonly apiKey?: string;
 }
+
+export type DataResponse = IResponce & ISources;

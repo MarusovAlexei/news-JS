@@ -1,5 +1,6 @@
 import { IResponce, IOptions } from './../types-ts/interface';
 import { Method } from './../types-ts/enum';
+type optionsObj = { [key: string]: string | number };
 
 class Loader {
     private baseLink: string;
@@ -11,12 +12,12 @@ class Loader {
     }
 
     getResp(
-        params: { endpoint: string; options: IOptions },
+        params: { endpoint: string; options?: IOptions },
         callback = (data: IResponce) => {
             console.error('No callback for GET response');
         }
     ) {
-        this.load(Method.Get, params.endpoint, callback, params.options);
+        this.load(Method.Get, params.endpoint, callback, params.options!);
     }
 
     errorHandler(res: Response) {
@@ -30,7 +31,7 @@ class Loader {
     }
 
     makeUrl(options: IOptions, endpoint: string) {
-        const urlOptions: IOptions = { ...this.options, ...options };
+        const urlOptions: optionsObj = { ...this.options, ...options };
         let url = `${this.baseLink}${endpoint}?`;
 
         Object.keys(urlOptions).forEach((key) => {
